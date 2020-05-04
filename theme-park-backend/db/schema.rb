@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_05_04_201015) do
 
   create_table "button_upgrades", force: :cascade do |t|
@@ -17,11 +18,15 @@ ActiveRecord::Schema.define(version: 2020_05_04_201015) do
     t.string "name"
     t.string "flavor_text"
     t.integer "click_multiplier"
-  end
+
 
   create_table "buttons", force: :cascade do |t|
     t.integer "value"
-  end
+
+
+  create_table "users", force: :cascade do |t|
+    t.string "user_name"
+
 
   create_table "wallets", force: :cascade do |t|
     t.float "money"
