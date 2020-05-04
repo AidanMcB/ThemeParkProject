@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_04_192121) do
+ActiveRecord::Schema.define(version: 2020_05_04_201015) do
+
+  create_table "button_upgrades", force: :cascade do |t|
+    t.integer "button_id"
+    t.string "name"
+    t.string "flavor_text"
+    t.integer "click_multiplier"
+  end
+
+  create_table "buttons", force: :cascade do |t|
+    t.integer "value"
+  end
 
   create_table "wallets", force: :cascade do |t|
     t.float "money"
