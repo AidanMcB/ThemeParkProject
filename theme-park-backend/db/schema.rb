@@ -10,13 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_04_201015) do
+ActiveRecord::Schema.define(version: 2020_05_04_210540) do
+
+  create_table "attraction_upgrades", force: :cascade do |t|
+    t.string "name"
+    t.string "flavor_text"
+    t.float "revenue_multiplier"
+    t.boolean "purchased?"
+    t.integer "price"
+    t.integer "attraction_id"
+  end
+
+  create_table "attractions", force: :cascade do |t|
+    t.string "name"
+    t.integer "amount"
+    t.float "revenue"
+    t.integer "wait_time"
+    t.string "img_source"
+  end
 
   create_table "button_upgrades", force: :cascade do |t|
     t.integer "button_id"
     t.string "name"
     t.string "flavor_text"
     t.integer "click_multiplier"
+    t.integer "price"
   end
 
   create_table "buttons", force: :cascade do |t|
