@@ -1,5 +1,5 @@
 let createWallet = function(){
-    fetch("http:localhost:3000/wallets/6")
+    fetch("http:localhost:3000/wallets/1")
         .then(function(response){
             return response.json()
         })
