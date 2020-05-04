@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  get '/wallets/:id' => 'wallets#show'
+  resources :wallets
+  resources :attractions
+  resources :attraction_upgrades
+  resources :buttons
+  resources :button_upgrades
+
 end

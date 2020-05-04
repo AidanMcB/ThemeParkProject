@@ -1,1 +1,3 @@
 createWallet()
+createAttraction()
+attUpgrades()
