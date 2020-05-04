@@ -1,0 +1,16 @@
+.nav-bar{
+    overflow: hidden;
+    background-color: grey;
+}
+.money-display{
+    float: right;
+    margin-right: 10px;
+    font-weight: bold;
+    color: orange;
+}
+html{
+  margin: 0;
+}
+body{
+    margin: 0;
+}

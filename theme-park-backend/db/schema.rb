@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_04_192121) do
+ActiveRecord::Schema.define(version: 2020_05_04_195514) do
+
+  create_table "users", force: :cascade do |t|
+    t.string "user_name"
+  end
 
   create_table "wallets", force: :cascade do |t|
     t.float "money"

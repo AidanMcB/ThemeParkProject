@@ -1,5 +1,5 @@
 let createWallet = function(){
-    fetch("https:localhost:3000/wallet")
+    fetch("https:localhost:3000/wallets/1")
         .then(function(response){
             return response.json()
         })
@@ -9,12 +9,12 @@ let createWallet = function(){
     //temporary local variable for money
     let money = 0
     //create wallet object and append it to the page
-    let walletContainer = document.createElement("div")
+    // let walletContainer = document.createElement("div")
+    let navbar = document.querySelector(".nav-bar")
     let moneyDisplay = document.createElement("p")
+    moneyDisplay.setAttribute('class', 'money-display')
     moneyDisplay.innerText = `${money} dollars`
 
-
-    walletContainer.append(moneyDisplay)
-    document.body.append(walletContainer)
+    navbar.append(moneyDisplay)
 
 }
