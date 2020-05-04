@@ -10,21 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_05_04_195514) do
 
   create_table "users", force: :cascade do |t|
     t.string "user_name"
+=======
+
+ActiveRecord::Schema.define(version: 2020_05_04_201015) do
+>>>>>>> 97b8cd18db40119c9eb6c03161fcf50fa0577b7c
 
   create_table "button_upgrades", force: :cascade do |t|
     t.integer "button_id"
     t.string "name"
     t.string "flavor_text"
     t.integer "click_multiplier"
-  end
+
 
   create_table "buttons", force: :cascade do |t|
     t.integer "value"
+<<<<<<< HEAD
   end
+=======
+
+
+  create_table "users", force: :cascade do |t|
+    t.string "user_name"
+
+>>>>>>> 97b8cd18db40119c9eb6c03161fcf50fa0577b7c
 
   create_table "wallets", force: :cascade do |t|
     t.float "money"
