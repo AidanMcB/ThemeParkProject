@@ -1,7 +1,7 @@
 let createWallet = function(){
     //will reference the wallet of the current user
     //currently hardcoded to user wallet 1
-    fetch("http:localhost:3000/wallets/2")
+    fetch("http:localhost:3000/wallets/1")
         .then(function(response){
             return response.json()
         })
@@ -19,4 +19,32 @@ let createWallet = function(){
 
     navbar.append(moneyDisplay)
         })
+}
+
+
+let addToWallet = function(value){ //callback will reference 
+    fetch("http:localhost:3000/wallets/1")
+        .then(function(response){
+            return response.json()
+        })
+        .then(function(wallet){
+            
+            let money = wallet.money + value
+            let moneyDisplay = document.querySelector('.money-display')
+            moneyDisplay.innerText = `${money} dollars`
+
+            updateWallet(money)
+        })
+}
+
+let updateWallet = function(value){
+    fetch(`http://localhost:3000/wallets/1`,{
+        method: "PATCH",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            money: value
+        })
+    })
+
+    console.log("Wallet Updated")
 }

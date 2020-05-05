@@ -10,4 +10,12 @@ class WalletsController < ApplicationController
         render(json: wallet)
     end
 
+    def update
+        wallet = Wallet.first
+        wallet.update({
+            money: params[:money]
+        })
+        render(json:wallet)
+    end
+
 end

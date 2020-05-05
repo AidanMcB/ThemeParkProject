@@ -1,7 +1,7 @@
 let theButton = function(){
     //button id currently hardcoded, needs to be updated to 
     //accept button of the current user
-    fetch('http://localhost:3000/buttons/2')
+    fetch('http://localhost:3000/buttons/1')
         .then(function(response){
             return response.json()
         })
