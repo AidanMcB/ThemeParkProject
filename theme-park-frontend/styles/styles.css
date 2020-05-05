@@ -8,6 +8,17 @@
     font-weight: bold;
     color: orange;
 }
+/* Button Styles */
+.the-button{
+    height: 100px;
+    width: 100px;
+    margin-left: 40%;
+    font-size: 26px;
+    border-radius: 55px 55px;
+    cursor: pointer;
+    border: 2px solid black;
+    background-color:orangered;
+}
 html{
   margin: 0;
 }
