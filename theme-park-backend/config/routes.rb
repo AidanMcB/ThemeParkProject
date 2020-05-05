@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :attraction_upgrades
   resources :buttons
   resources :button_upgrades
+  resources :users
 
 end

@@ -1,3 +1,4 @@
+createLoginPage()
 createWallet()
 renderAttractions()
 attUpgrades()
