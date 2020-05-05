@@ -1,7 +1,7 @@
 let createWallet = function(){
     //will reference the wallet of the current user
     //currently hardcoded to user wallet 1
-    fetch("http:localhost:3000/wallets/1")
+    fetch("http:localhost:3000/wallets/2")
         .then(function(response){
             return response.json()
         })
