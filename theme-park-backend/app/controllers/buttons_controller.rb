@@ -16,4 +16,19 @@ class ButtonsController < ApplicationController
         render(json: button)
     end
 
+    def new
+        button = Button.new
+        render(json: button)
+    end
+
+    def create 
+        # byebug
+        button = Button.create({
+            user_id: params[:user_id],
+            value: params[:value]
+        })
+        session[:button_id] = button.id
+        render(json: button)
+    end
+
 end

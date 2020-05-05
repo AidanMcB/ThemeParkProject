@@ -1,11 +1,15 @@
-let theButton = function(){
+
+let getButton = function(currentUser){
+
     //button id currently hardcoded, needs to be updated to 
     //accept button of the current user
-    fetch('http://localhost:3000/buttons/1')
+    fetch(`http://localhost:3000/buttons`)
         .then(function(response){
             return response.json()
         })
-        .then(function(button){
+        .then(function(buttons){
+            let button = buttons.find(button => currentUser.id == button.user_id)
+
             let btn = document.createElement("button")
             btn.innerText = button.value
             document.body.append(btn)
