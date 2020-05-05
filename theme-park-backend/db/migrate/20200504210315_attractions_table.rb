@@ -6,6 +6,7 @@ class AttractionsTable < ActiveRecord::Migration[6.0]
       t.float :revenue
       t.integer :wait_time
       t.string :img_source
+      t.integer :user_id
     end
   end
 end

@@ -18,4 +18,21 @@ class WalletsController < ApplicationController
         render(json:wallet)
     end
 
+
+    def new
+        wallet = Wallet.new
+        render(json: wallet)
+    end
+
+    def create 
+        # byebug
+        wallet = Wallet.create({
+            user_id: params[:user_id],
+            money: params[:money],
+            img_src: params[:img_src]
+        })
+        session[:wallet_id] = wallet.id
+        render(json: wallet)
+    end                   
+
 end

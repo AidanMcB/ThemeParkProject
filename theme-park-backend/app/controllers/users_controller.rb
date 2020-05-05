@@ -11,16 +11,15 @@ class UsersController < ApplicationController
     end
 
     def new
-        byebug
         user = User.new
         render(json: user)
     end
 
     def create 
-        byebug  
         user = User.create({
             user_name: params[:user_name]
         })
+        session[:user_id] = user.id
         #consider adding validations
         # if(user.valid?){
         #     user.save

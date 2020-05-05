@@ -1,23 +1,23 @@
-createLoginPage()
-createWallet()
-renderAttractions()
-attUpgrades()
-theButton()
+createSignUp()
+// if(currentUser){
+// createWallet()
+// createButton()
+// }
+// renderAttractions()
 
-function five(){
-    addCaroselMoney()
-}
+// attUpgrades()
+// function five(){
+//     addCaroselMoney()
+// }
 
 
+// let temp_button = document.createElement('button')
 
+// temp_button.append("Purchase Carosel")
 
-let temp_button = document.createElement('button')
-
-temp_button.append("Purchase Carosel")
-
-temp_button.addEventListener("click", function(e){
-    createCarosel()
-})
+// temp_button.addEventListener("click", function(e){
+//     createCarosel()
+// })
 
 document.body.append(temp_button)
 

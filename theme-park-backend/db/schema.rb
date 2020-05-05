@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2020_05_04_210540) do
     t.float "revenue"
     t.integer "wait_time"
     t.string "img_source"
+    t.integer "user_id"
   end
 
   create_table "button_upgrades", force: :cascade do |t|
@@ -39,6 +40,7 @@ ActiveRecord::Schema.define(version: 2020_05_04_210540) do
 
   create_table "buttons", force: :cascade do |t|
     t.integer "value"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
