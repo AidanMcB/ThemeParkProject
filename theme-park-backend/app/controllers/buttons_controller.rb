@@ -21,8 +21,8 @@ class ButtonsController < ApplicationController
         render(json: button)
     end
 
+    #copy these
     def create 
-        # byebug
         button = Button.create({
             user_id: params[:user_id],
             value: params[:value]
