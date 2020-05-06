@@ -1,19 +1,20 @@
 let getWallet = function(currentUser){
-    
+ 
     //will reference the wallet of the current user
-    //currently hardcoded to user wallet 1
     fetch(`http:localhost:3000/wallets`)
         .then(function(response){
             return response.json()
         })
         .then(function(wallets){
-            console.log(wallets)
-           let wallet = wallets.find(wallet => currentUser.id == wallet.user_id)
-           
+            //find the wallet that matches the currnet user_id
+            
+            // wallets.find( wallet => wallet.user_id == currentUser.id)
+            let wallet = wallets.find( wallet =>  wallet.user_id == currentUser.id)
+        
     //temporary local variable for money
     let money = wallet.money
     //create wallet object and append it to the page
-    // let walletContainer = document.createElement("div")
+    //let walletContainer = document.createElement("div")
     let navbar = document.querySelector(".nav-bar")
 
     let moneyDisplay = document.createElement("p")
@@ -22,10 +23,11 @@ let getWallet = function(currentUser){
 
     navbar.append(moneyDisplay)
     })
+
 }
 
 
-let addToWallet = function(value){ //callback will reference 
+let addToWallet = function(currentUser,value){ //callback will reference 
     fetch(`http:localhost:3000/wallets/${currentUser.id}`)
         .then(function(response){
             return response.json()
