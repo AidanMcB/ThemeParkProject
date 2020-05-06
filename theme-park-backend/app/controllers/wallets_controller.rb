@@ -11,7 +11,7 @@ class WalletsController < ApplicationController
     end
 
     def update
-        wallet = Wallet.first
+        wallet = Wallet.find(params[:id])
         wallet.update({
             money: params[:money]
         })
