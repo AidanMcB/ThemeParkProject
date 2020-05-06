@@ -1,6 +1,8 @@
 let userNow = {}
 
 let createSignUp = function(){
+    //main page div
+    let signUpDiv = document.createElement("div")
     //title
     let title = document.createElement("h1")
     title.innerText = "Theme Park Simulator"
@@ -12,9 +14,10 @@ let createSignUp = function(){
     signUp.setAttribute('class', 'sign-up-input')
     signUp.placeholder = "Enter a username"
     
-    document.body.append(title)
-    document.body.append(signUp)
-    document.body.append(signUpBtn)
+    signUpDiv.append(title)
+    signUpDiv.append(signUp)
+    signUpDiv.append(signUpBtn)
+    document.body.append(signUpDiv)
 
     signUpBtn.addEventListener('click', function(){
         //post the new user to users 
@@ -32,6 +35,8 @@ let createSignUp = function(){
         return response.json()
     })
     .then(function(newUser){
+        //clear login page
+        signUpDiv.innerText = ""
         //assign the empty object 'currentUser' to the 
         //newUser we created through input
             userNow = newUser
@@ -45,10 +50,4 @@ let createSignUp = function(){
     })
 
 })
-
-//current user variable default set to empty no one logged in 
-//fetch request to users, retrive user who matches user_name
-//automatically assings that user_name to current_user
-//validations for no two users 
-//
 }
