@@ -1,6 +1,7 @@
 let userNow = {}
 
 let createSignUp = function(){
+    
     //main page div
     let signUpDiv = document.createElement("div")
     //title
@@ -43,10 +44,12 @@ let createSignUp = function(){
             let currentUser = newUser
         //creates a wallet when a user is created
         //wallet is tied to this use
-            getWallet(currentUser)
+        getWallet(currentUser)
         //creates a button when a user is created
         //button is tied to this user
-            getButton(currentUser)
+        getButton(currentUser)
+        getPage()
+
     })
 
 })
