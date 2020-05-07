@@ -21,7 +21,11 @@ let createSignUp = function(){
     signUpDiv.append(signUp)
     signUpDiv.append(signUpBtn)
     document.body.append(signUpDiv)
-
+   
+    //create sign In div
+    let signInDiv = document.createElement("div")
+    signInDiv.setAttribute('class', 'sign-in')
+    
     //get users check if input name already exists
     fetch(`http://localhost:3000/users`)
     .then(function(response){
@@ -40,21 +44,17 @@ let createSignUp = function(){
                 //or sign in
         let array = users
 
-        //create sign In div
-        let signIn = document.createElement("div")
-        signIn.setAttribute('class', 'sign-in')
-
         let or = document.createElement("p")
         or.innerText = "or"
-        signIn.append(or)
+        signInDiv.append(or)
         
         let userSelection = document.createElement("select")
         userSelection.id = "userIdSelection"
-        signIn.append(userSelection)
+        signInDiv.append(userSelection)
 
         for(let i = 0; i < array.length; i++){
             let option = document.createElement("option")
-            option.value = array[i]
+            option.value = array[i].id
             option.text = array[i].user_name
             userSelection.appendChild(option)
         }
@@ -62,13 +62,19 @@ let createSignUp = function(){
         //selection options button
         let signInBtn = document.createElement("button")
         signInBtn.innerText = "Sign In"
-        signIn.append(signInBtn)
-        document.body.append(signIn)
+        signInDiv.append(signInBtn)
+        document.body.append(signInDiv)
         
         signInBtn.addEventListener('click', function(){
-            currentUser = userSelection.options[userSelection.selectedIndex].value
-            //consider debugger
-            
+
+            currentUserId = userSelection.options[userSelection.selectedIndex].value
+            currentUser = users.find(user => user.id == currentUserId)
+            debugger
+            signInDiv.innerText = ""
+            signUpDiv.innerText = ""
+            getWallet(currentUser)
+            getButton(currentUser)
+            getPage(currentUser)
 
         })
     })
@@ -96,6 +102,8 @@ let createSignUp = function(){
     .then(function(newUser){
         //clear login page
         signUpDiv.innerText = ""
+        signInDiv.innerText = ""
+       
         //assign the empty object 'currentUser' to the 
         //newUser we created through input
         userNow = newUser
