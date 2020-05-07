@@ -1,3 +1,4 @@
+let btnDiv = document.createElement("div")
 let getButton = function(currentUser){
 
     //accept button of the current user
@@ -12,14 +13,13 @@ let getButton = function(currentUser){
             //current users button
             let button = user.button
             
-            let btnDiv = document.createElement("div")
             btnDiv.setAttribute('class', 'btn-div')
             let btn = document.createElement("button")
             btn.innerText = "Click Me"
             btn.setAttribute('class', 'the-button')
             btn.setAttribute('id', button.id)
             btnDiv.append(btn)
-            gC.append(btnDiv)
+            
 
             //when the button is clicked
             btn.addEventListener('click', function(){

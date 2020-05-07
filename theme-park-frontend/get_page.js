@@ -39,18 +39,77 @@ let getPage = function(){
         attractionQt.innerText = "number of attractions"
         let attractionUpgrade = document.createElement("p")
         attractionUpgrade.innerText = "attraction upgrade"
-
-    //add picture to the gameScreen
-    gS.append(picture)
-    //attraction
-    attractionList.append(attraction)
-    attractionList.append(attractionQt)
-    attractionList.append(attractionUpgrade)
+        
+        let attractionDiv = document.createElement("div")
+        attractionDiv.setAttribute('class', 'attraction-div')
+        
+        //add picture to the gameScreen
+        gS.append(picture)
+        gC.append(gS)
+        //attraction
+        attractionList.append(attraction)
+        attractionList.append(attractionQt)
+        attractionList.append(attractionUpgrade)
+        attractionDiv.append(attractionList)
+        //boxes right side
+        //1
+        // let box1 = document.createElement("div")
+        // box1.innerText = "box1"
+        // box1.setAttribute('class', 'attraction-div')
+        // gC.append(box1)
+        // //2
+        // let box2 = document.createElement("div")
+        // box2.innerText = "box2"
+        // box2.setAttribute('class', 'attraction-div')
+        // gC.append(box2)
+        //3
+        let box3 = document.createElement("div")
+        box3.innerText = "box3"
+        box3.setAttribute('class', 'attraction-div')
+        gC.append(box3)
+        //4
+        let box4 = document.createElement("div")
+        // box4.innerText = "box4"
+        // box4.setAttribute('class', 'attraction-div')
+        gC.append(box4)
+        //5
+        let box5 = document.createElement("div")
+        box5.innerText = "box5"
+        box5.setAttribute('class', 'attraction-div')
+        gC.append(box5)
+        //6
+        let box6 = document.createElement("div")
+        // box6.innerText = "box6"
+        // box6.setAttribute('class', 'attraction-div')
+        gC.append(box6)
+        //7
+        let box7 = document.createElement("div")
+        box7.innerText = "box7"
+        box7.setAttribute('class', 'attraction-div')
+        gC.append(box7)
+        //8
+        let box8 = document.createElement("div")
+        // box8.innerText = "box8"
+        // box8.setAttribute('class', 'attraction-div')
+        gC.append(box8)
+        //9
+        let box9 = document.createElement("div")
+        box9.innerText = "box9"
+        box9.setAttribute('class', 'attraction-div')
+        gC.append(box9)
+        //10
+        let box10 = document.createElement("div")
+        // box10.innerText = "box10"
+        // box10.setAttribute('class', 'attraction-div')
+        gC.append(box10)
+      
+        attractionDiv.append(attractionList)
 
     //append header, game Screen, Attractions, and footer
     document.body.append(header)
-    document.body.append(gS)
-    document.body.append(attractionList)
+    gC.append(attractionDiv)
+    document.body.append(gC)
+    footer.append(btnDiv)
     document.body.append(footer)
 
 
