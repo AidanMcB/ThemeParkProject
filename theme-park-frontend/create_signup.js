@@ -58,7 +58,7 @@ let createSignUp = function(){
 
         for(let i = 0; i < array.length; i++){
             let option = document.createElement("option")
-            option.value = array[i]
+            option.value = array[i].id
             option.text = array[i].user_name
             userSelection.appendChild(option)
         }
@@ -71,10 +71,11 @@ let createSignUp = function(){
         document.body.append(signInDiv)
         
         signInBtn.addEventListener('click', function(){
-            currentUser = userSelection.options[userSelection.selectedIndex].value
-           
+            let currentUserId = userSelection.options[userSelection.selectedIndex].value
+            currentUser = currentUserId
             signInDiv.innerText = ""
             signUpDiv.innerText = ""
+            debugger
             getWallet(currentUser)
             getButton(currentUser)
             getPage(currentUser)
@@ -84,11 +85,6 @@ let createSignUp = function(){
         
     signUpBtn.addEventListener('click', function(){
         
-                // if(){
-
-        // }
-        // else{
-        //post the new user to users 
         fetch('http://localhost:3000/users', {
             method: 'POST',
             headers: {
@@ -109,6 +105,7 @@ let createSignUp = function(){
         //newUser we created through input
         userNow = newUser
         currentUser = newUser
+       
             // let currentUser = newUser
         //creates a wallet when a user is created
         //wallet is tied to this use

@@ -12,7 +12,7 @@ let getPage = function(){
         //header
         let header = document.createElement("header")
         header.setAttribute('class', 'header')
-        header.innerText = "Alien Theme Park"
+        header.innerText = `Monstar Theme Park`
 
         //footer
         let footer = document.createElement("div")
