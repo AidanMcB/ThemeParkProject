@@ -10,6 +10,7 @@ let getButton = function(currentUser){
             let user = users.find( user => user.id == currentUser.id)
             //curent users wallet
             let wallet = user.wallet
+            console.log(user.wallet)
             //current users button
             let button = user.button
             
@@ -23,25 +24,8 @@ let getButton = function(currentUser){
 
             //when the button is clicked
             btn.addEventListener('click', function(){
-                    console.log(wallet.money)
-                fetch(`http:localhost:3000/wallets/${wallet.id}`,{
-                    method: 'PATCH',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        money: wallet.money += 1 
-                        })
-                    })
-                    .then(function(response){
-                        return response.json()
-                    })
-                    .then(function(like){
-                        let moneyDisplay = document.querySelector('.money-display')
-                        moneyDisplay.innerText = `${wallet.money} dollars`
-
-                    })
+                addToWallet(currentUser,button.value)
+                updateWallet(currentUser,button.value)
 
             })
         })

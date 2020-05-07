@@ -112,7 +112,7 @@ let getPage = function(){
     footer.append(btnDiv)
     document.body.append(footer)
 
-
+    runGame()
 
 
     

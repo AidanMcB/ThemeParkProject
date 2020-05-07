@@ -31,7 +31,7 @@ let addCaroselMoney = function(){
     })
     .then(function(attractions){
         let carosel = attractions.find(element => {return element.name === "Carosel"})
-        addToWallet(carosel.revenue)
+        addToWallet(currentUser,carosel.revenue)
     })
 }
 
