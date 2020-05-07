@@ -30,16 +30,15 @@ html{
 
         display: grid;
         grid-template-columns: 75% 25%;
-        grid-template-rows: 10vw 30vw 10vw;
+        grid-template-rows: 10vw 10vw 10vw 10vw 10vw;
         grid-gap: 1em;
     /* align-items: center;
     border: 1px dotted black; */ 
 }
 /* All */ 
 .game-screen,
-.attraction-list,
-.footer,
-.btn-div{
+.attraction-div,
+.footer{
     background: #eaeaea;
     display: flex;
     align-items: center;
@@ -48,7 +47,6 @@ html{
 /* Children in Order */
     /* 1 */
     .btn-div{
-        order: 2;
         margin: 0.5em;
         padding: 0.5em;
     }
