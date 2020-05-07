@@ -1,4 +1,5 @@
 let getWallet = function(currentUser){
+ console.log(currentUser.id)
  
     //will reference the wallet of the current user
     fetch(`http:localhost:3000/wallets`)
