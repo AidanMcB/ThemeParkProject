@@ -4,6 +4,10 @@ let userCheck = ""
 
 let createSignUp = function(){
     
+     //create sign In div
+     let signInDiv = document.createElement("div")
+     signInDiv.setAttribute('class', 'sign-in-div')
+     
     let docBody = document.querySelector("body")
     
     //main page div
@@ -43,9 +47,7 @@ let createSignUp = function(){
                 //or sign in
         let array = users
 
-        //create sign In div
-        let signInDiv = document.createElement("div")
-        signInDiv.setAttribute('class', 'sign-in-div')
+       
 
         let or = document.createElement("p")
         or.setAttribute('class', 'or')
@@ -71,11 +73,11 @@ let createSignUp = function(){
         document.body.append(signInDiv)
         
         signInBtn.addEventListener('click', function(){
-            let currentUserId = userSelection.options[userSelection.selectedIndex].value
-            currentUser = currentUserId
+            currentUserId = userSelection.options[userSelection.selectedIndex].value
+            currentUser = users.find(user => user.id == currentUserId)
             signInDiv.innerText = ""
             signUpDiv.innerText = ""
-            debugger
+            
             getWallet(currentUser)
             getButton(currentUser)
             getPage(currentUser)
@@ -100,12 +102,17 @@ let createSignUp = function(){
     })
     .then(function(newUser){
         //clear login page
-        document.body.innerText = ""
+        signInDiv.innerText = ""
+        signUpDiv.innerText = ""
+        
+        //add navbar back
+   
+        
         //assign the empty object 'currentUser' to the 
         //newUser we created through input
         userNow = newUser
         currentUser = newUser
-       
+        
             // let currentUser = newUser
         //creates a wallet when a user is created
         //wallet is tied to this use
@@ -114,6 +121,7 @@ let createSignUp = function(){
         //button is tied to this user
         getButton(currentUser)
         getPage()
+     
 
     })
         // }//ends else statement
