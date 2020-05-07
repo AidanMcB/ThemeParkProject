@@ -1,5 +1,5 @@
 let getWallet = function(currentUser){
- console.log(currentUser.id)
+
  
     //will reference the wallet of the current user
     fetch(`http:localhost:3000/wallets`)
@@ -11,17 +11,18 @@ let getWallet = function(currentUser){
             
             // wallets.find( wallet => wallet.user_id == currentUser.id)
             let wallet = wallets.find( wallet =>  wallet.user_id == currentUser.id)
-        
+  
     //temporary local variable for money
     let money = wallet.money
     //create wallet object and append it to the page
     //let walletContainer = document.createElement("div")
     let navbar = document.querySelector(".nav-bar")
-
+    
     let moneyDisplay = document.createElement("p")
     moneyDisplay.setAttribute('class', 'money-display')
     moneyDisplay.innerText = `${money} dollars`
-
+    
+ 
     navbar.append(moneyDisplay)
     })
 
