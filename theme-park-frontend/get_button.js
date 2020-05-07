@@ -11,12 +11,15 @@ let getButton = function(currentUser){
             let wallet = user.wallet
             //current users button
             let button = user.button
-
+            
+            let btnDiv = document.createElement("div")
+            btnDiv.setAttribute('class', 'btn-div')
             let btn = document.createElement("button")
             btn.innerText = "Click Me"
             btn.setAttribute('class', 'the-button')
             btn.setAttribute('id', button.id)
-            document.body.append(btn)
+            btnDiv.append(btn)
+            gC.append(btnDiv)
 
             //when the button is clicked
             btn.addEventListener('click', function(){
@@ -38,7 +41,6 @@ let getButton = function(currentUser){
                         let moneyDisplay = document.querySelector('.money-display')
                         moneyDisplay.innerText = `${wallet.money} dollars`
 
-                        
                     })
 
             })

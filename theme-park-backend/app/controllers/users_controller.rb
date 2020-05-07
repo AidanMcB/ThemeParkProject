@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
     def index 
         users = User.all 
-        render json: users, include: [:wallet, :button]
+        render json: users, include: [:wallet, :button, :attractions]
     end
 
     def show 
