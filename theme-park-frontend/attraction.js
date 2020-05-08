@@ -16,10 +16,9 @@ let createCarosel = function() {
 
         
 
-            
-            //create a div and h2 
+        
 
-        renderAttractions()
+            
 
     })
 }
@@ -31,6 +30,8 @@ let addCaroselMoney = function(){
     })
     .then(function(attractions){
         let carosel = attractions.find(element => {return element.name === "Carosel"})
+
+
         addToWallet(currentUser,carosel.revenue)
     })
 }

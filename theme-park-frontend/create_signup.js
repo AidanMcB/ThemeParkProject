@@ -69,7 +69,6 @@ let createSignUp = function(){
 
             currentUserId = userSelection.options[userSelection.selectedIndex].value
             currentUser = users.find(user => user.id == currentUserId)
-            debugger
             signInDiv.innerText = ""
             signUpDiv.innerText = ""
             getWallet(currentUser)

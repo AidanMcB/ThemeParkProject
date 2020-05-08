@@ -8,10 +8,17 @@ let runGame = function(){
 
     attUpgrades()
 
-    let five = function(){
-        console.log("5 second timer")
+    let five = async function(){
         addCaroselMoney()
     }
+
+    let walletUpdate = async function(){
+        console.log("The money has been saved in the database")
+        let moneyDisplay = document.querySelector('.money-display')
+        let money = parseInt(moneyDisplay.innerHTML)
+        updateWallet(currentUser, money)
+    }
+
     
 
     let temp_button = document.createElement('button')
@@ -25,4 +32,5 @@ let runGame = function(){
     document.body.append(temp_button)
 
     setInterval(five,5000)
+    setInterval(walletUpdate,30000)
 }
