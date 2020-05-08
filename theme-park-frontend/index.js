@@ -17,7 +17,7 @@ let runGame = function(){
 
     renderAttractions()
 
-    attUpgrades()
+    // attUpgrades()
 
     let five = async function(){
         addCaroselMoney()
@@ -50,6 +50,7 @@ let runGame = function(){
         createCarosel()
     })
 
+    // upgradeCarosel()
 
     
     carosel_container.append(carosel_button)

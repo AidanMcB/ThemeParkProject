@@ -70,6 +70,50 @@ let addCaroselMoney = function(){
     })
 }
 
+
+// let upgradeCarosel = function(){
+//     fetch('http://localhost:3000/attractions')
+//     .then(function(response){
+//         return response.json()
+//     })
+//     .then(function(attractions){
+//         let carosel = attractions.find(element => {return element.name === "Carosel" && element.user_id === currentUser.id})
+
+//         upgrade = getUpgrades(carosel)
+//         console.log(monkey_fix)
+//         console.log()
+
+//         let moneyDisplay = document.querySelector('.money-display')
+//         let money = parseInt(moneyDisplay.innerHTML)
+//         console.log(monkey_fix)
+
+//         fetch(`http://localhost:3000/attraction_upgrades`)
+//             .then(function(response){
+//                 return response.json()
+//             })
+//             .then(function(attUpgrades){
+//                 console.log(attUpgrades)
+//             monkey_fix = attUpgrades.find(element => {return element.name === "Carosel" && element["purchased?"] === false})
+
+//             if(monkey_fix === undefined){
+//                 console.log("No more upgrades left")
+//             }
+//             else if (money < monkey_fix.price){
+//                 console.log("You're broke...")
+//             }
+//             else{
+//                 moneyDisplay.innerHTML = `${money - monkey_fix.price} dollars`
+//                 updateUpgrade(monkey_fix)
+//             }
+
+
+//         })
+    
+
+
+//     })
+// }
+
 let renderAttractions = function(){
     fetch('http://localhost:3000/attractions')
     .then(function(response){
@@ -122,5 +166,5 @@ let assignAllAttractions = function(){
             price: 25
         })
     })
-    .then()
+
 }
