@@ -115,9 +115,10 @@ body{
 
 /* Header Styles */
 .header {
+    font-family: 'headhunterregular';
     background-color: #F1F1F1;
     text-align: center;
-    padding: 20px;
+    padding: 00px;
 }
 
 .button{
@@ -131,9 +132,9 @@ html{
 }
 /* All Items Within game container flex */
 .game-container{
-
+        margin-top: 15px;
         display: grid;
-        grid-template-columns: 75% 25%;
+        grid-template-columns: 72% 22%;
         grid-template-rows: 10vw 10vw 10vw 10vw 10vw;
         grid-gap: 1em;
     /* align-items: center;
@@ -172,7 +173,7 @@ html{
     }
     /* 3 */
     .footer{
-        grid-column: 1 / span 2;
+        /* grid-column: 1 / span 2; */
         border: 1px dotted white;
         margin: 0.5em;
         padding: 0.5em;
@@ -187,6 +188,8 @@ html{
     .game-screen{
         border: 1px solid black;
         margin: 0.5em;
+        margin-top: 40px;
+        margin-left: 70px;
         padding: 0.5em;
         height: 600px;
         width: 1000px;

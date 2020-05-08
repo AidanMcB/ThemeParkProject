@@ -7,7 +7,6 @@ let createSignUp = function(){
      //create sign In div
      let signInDiv = document.createElement("div")
      signInDiv.setAttribute('class', 'sign-in-div')
-     
     let docBody = document.querySelector("body")
     
     //main page div
@@ -120,7 +119,7 @@ let createSignUp = function(){
         //creates a button when a user is created
         //button is tied to this user
         getButton(currentUser)
-        getPage()
+        getPage(currentUser)
      
 
     })

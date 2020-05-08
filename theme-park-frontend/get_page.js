@@ -1,6 +1,6 @@
 let gS = ""
 let gC = ""
-let getPage = function(){
+let getPage = function(currentUser){
 
         //create the gameScreen and gameContainer tags 
         gS = document.createElement('div')
@@ -12,7 +12,7 @@ let getPage = function(){
         //header
         let header = document.createElement("header")
         header.setAttribute('class', 'header')
-        header.innerText = `Monstar Theme Park`
+        header.innerText = `${currentUser.user_name}'s  Park`
 
         //footer
         let footer = document.createElement("div")
@@ -99,9 +99,11 @@ let getPage = function(){
         gC.append(box9)
         //10
         let box10 = document.createElement("div")
+        box10.setAttribute('id', '10')
         // box10.innerText = "box10"
         // box10.setAttribute('class', 'attraction-div')
-        gC.append(box10)
+
+        gC.append(footer)
       
         attractionDiv.append(attractionList)
 
@@ -110,7 +112,7 @@ let getPage = function(){
     gC.append(attractionDiv)
     document.body.append(gC)
     footer.append(btnDiv)
-    document.body.append(footer)
+    //document.body.append(footer)
 
     runGame()
 
