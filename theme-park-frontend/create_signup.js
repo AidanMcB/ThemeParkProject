@@ -120,6 +120,9 @@ let createSignUp = function(){
         //button is tied to this user
         getButton(currentUser)
         getPage(currentUser)
+
+        //create attractions for the user
+        assignAllAttractions()
      
 
     })
