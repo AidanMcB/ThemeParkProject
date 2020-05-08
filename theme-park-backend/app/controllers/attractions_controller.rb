@@ -14,7 +14,8 @@ class AttractionsController < ApplicationController
         attraction = Attraction.find(params[:id])
         attraction.update({
             amount: params[:amount],
-            price: params[:price]
+            price: params[:price],
+            revenue: params[:revenue]
 
         })
         render(json: attraction)

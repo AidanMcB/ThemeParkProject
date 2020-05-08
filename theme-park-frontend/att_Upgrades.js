@@ -8,7 +8,7 @@ let assignAllAttUpgrades = function(){
             name: "Carosel",
             flavor_text: "Congrats! You're an Idling Pro... A Professional Time Waster",
             revenue_multiplier: 2,
-            "purchased": false,
+            "purchased?": false,
             user_id: currentUser.id,
             price: 100
         })
@@ -26,21 +26,36 @@ let purchaseUpgrade = function(attraction){
             return response.json()
         })
         .then(function(upgrades){
-            
-            let a = upgrades.forEach(upgrade => {
-                if 
-                console.log(upgrade)
+            let a = {}
+            upgrades.forEach(upgrade => {
+                
+                if(upgrade.user_id == currentUser.id && upgrade.name == attraction.name){
+                    a = upgrade
+                }
+                
+                
             })
-            console.log(`${attraction.name} should equal Carosel`)
             console.log(a)
-            console.log(upgrades)
+            if (money < a.price){
+                console.log("You're broke")
+            }
+            else if(a["purchased?"] == true){
+                console.log("This has already been purchased.")
+            }
+            else{
+                console.log(a.price)
+                moneyDisplay.innerText = `${money - a.price} dollars`
+
+                fetch(`http://localhost:3000/attraction_upgrades/${a.id}`,{
+                    method: "PATCH",
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        "purchased?": true
+                    })
+                })
+            }
+
         })
 
-    fetch(`http://localhost:3000/attraction_upgrades`,{
-        method: "PATCH",
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-            "purchased": true
-        })
-    })
+
 }

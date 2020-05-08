@@ -1,10 +1,9 @@
 
 let gravitron_container = document.querySelectorAll('.attraction-div')[1]
 let waterslide_container = document.querySelectorAll('.attraction-div')[2]
-let droptower_container = document.querySelectorAll('.attraction-div')[3]
-let rollercoaster_container = document.querySelectorAll('.attraction-div')[4]
+let rollercoaster_container = document.querySelectorAll('.attraction-div')[3]
 
-
+// CAROSEL STUFF
 let createCarosel = function() {
     let carosel_container = document.querySelectorAll('.attraction-div')[0]
     fetch('http://localhost:3000/attractions')
@@ -71,7 +70,7 @@ let addCaroselMoney = function(){
 }
 
 
-let caroselUpgradeTest = function(){
+let caroselUpgrade = function(){
     fetch('http://localhost:3000/attractions')
     .then(function(response){
         return response.json()
@@ -81,51 +80,15 @@ let caroselUpgradeTest = function(){
 
 
         purchaseUpgrade(carosel)
+
+        changeRevenue(carosel,2)
+        
     })
 }
 
-// let upgradeCarosel = function(){
-//     fetch('http://localhost:3000/attractions')
-//     .then(function(response){
-//         return response.json()
-//     })
-//     .then(function(attractions){
-//         let carosel = attractions.find(element => {return element.name === "Carosel" && element.user_id === currentUser.id})
 
-//         upgrade = getUpgrades(carosel)
-//         console.log(monkey_fix)
-//         console.log()
+////////////////////////////////////
 
-//         let moneyDisplay = document.querySelector('.money-display')
-//         let money = parseInt(moneyDisplay.innerHTML)
-//         console.log(monkey_fix)
-
-//         fetch(`http://localhost:3000/attraction_upgrades`)
-//             .then(function(response){
-//                 return response.json()
-//             })
-//             .then(function(attUpgrades){
-//                 console.log(attUpgrades)
-//             monkey_fix = attUpgrades.find(element => {return element.name === "Carosel" && element["purchased?"] === false})
-
-//             if(monkey_fix === undefined){
-//                 console.log("No more upgrades left")
-//             }
-//             else if (money < monkey_fix.price){
-//                 console.log("You're broke...")
-//             }
-//             else{
-//                 moneyDisplay.innerHTML = `${money - monkey_fix.price} dollars`
-//                 updateUpgrade(monkey_fix)
-//             }
-
-
-//         })
-    
-
-
-//     })
-// }
 
 let renderAttractions = function(){
     fetch('http://localhost:3000/attractions')
@@ -157,7 +120,8 @@ let saveToDatabase = function(attraction){
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
             amount: attraction.amount,
-            price: (attraction.price * 2)
+            price: (attraction.price * 2),
+            revenue: attraction.revenue
         })
     })
 
@@ -166,7 +130,8 @@ let saveToDatabase = function(attraction){
 
 }
 
-let assignAllAttractions = function(){
+let assignAllAttractions = async function(){
+    
     fetch(`http://localhost:3000/attractions`,{
         method: "POST",
         headers: {'Content-Type': 'application/json'},
@@ -179,5 +144,63 @@ let assignAllAttractions = function(){
             price: 25
         })
     })
+    .then(fetch(`http://localhost:3000/attractions`,{
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            name: "Gravitron",
+            amount: 0,
+            revenue: 5,
+            wait_time: 10,
+            user_id: currentUser,
+            price: 100
+        })
+    }))
+    .then(fetch(`http://localhost:3000/attractions`,{
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            name: "Waterslide",
+            amount: 0,
+            revenue: 20,
+            wait_time: 10,
+            user_id: currentUser,
+            price: 500
+        })
+
+    }))
+    .then(fetch(`http://localhost:3000/attractions`,{
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            name: "Rollercoaster",
+            amount: 0,
+            revenue: 50,
+            wait_time: 10,
+            user_id: currentUser,
+            price: 2000
+        })
+    }))
+
+}
+
+let changeRevenue = function(attraction, amount){
+
+    let a = attraction.revenue * amount
+    fetch(`http://localhost:3000/attractions/${attraction.id}`,{
+        method: "PATCH",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            name: attraction.name,
+            revenue: a,
+            wait_time: attraction.wait_time,
+            amount: attraction.amount,
+            user_id: attraction.user_id,
+            price: attraction.price
+        })
+    })
+
+    console.log(`${attraction.name} is now making ${a}`)
+
 
 }
