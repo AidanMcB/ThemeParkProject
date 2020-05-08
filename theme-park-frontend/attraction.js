@@ -1,5 +1,5 @@
 
-let gravitron_container = document.querySelectorAll('.attraction-div')[1]
+
 let waterslide_container = document.querySelectorAll('.attraction-div')[2]
 let rollercoaster_container = document.querySelectorAll('.attraction-div')[3]
 
@@ -89,6 +89,257 @@ let caroselUpgrade = function(){
 
 ////////////////////////////////////
 
+let createGravitron = function() {
+    let gravitron_container = document.querySelectorAll('.attraction-div')[1]
+    fetch('http://localhost:3000/attractions')
+        .then(function(response){
+            return response.json()
+        })
+        .then(function(attractions){
+            // Testing function to see if gravitron can be found
+            let gravitron = attractions.find(element => {return element.name === "Gravitron" && element.user_id === currentUser.id})
+
+
+            let moneyDisplay = document.querySelector('.money-display')
+            let money = parseInt(moneyDisplay.innerHTML)
+
+            if(money < gravitron.price)
+            {
+                console.log("Cannot be purchased")
+            }
+            else{
+            moneyDisplay.innerText = `${money - gravitron.price} dollars`
+
+
+            
+            // If button is pressed the amount gets updated by 1
+            gravitron.amount += 1
+            console.log("This is the gravitron amount " + gravitron.amount)
+
+            // gravitron_container.append(`Purchased: ${gravitron.amount}`)
+
+            saveToDatabase(gravitron)
+            }
+
+    })
+}
+
+let showGravitronAmount = function(){
+    let gravitron_container = document.querySelectorAll('.attraction-div')[0]
+    fetch('http://localhost:3000/attractions')
+        .then(function(response){
+            return response.json()
+        })
+        .then(function(attractions){
+            // Testing function to see if gravitron can be found
+            let gravitron = attractions.find(element => {return element.name === "Gravitron" && element.user_id === currentUser.id})
+
+            //Fix later lol
+            gravitron_container.append(`Purchased: ${gravitron.amount}`)
+            gravitron_container.append(`Price: ${gravitron.price}`)
+    })
+}
+
+
+let addGravitronMoney = function(){
+    fetch('http://localhost:3000/attractions')
+    .then(function(response){
+        return response.json()
+    })
+    .then(function(attractions){
+        let gravitron = attractions.find(element => {return element.name === "Gravitron" && element.user_id === currentUser.id})
+
+
+        addToWallet(currentUser,(gravitron.revenue * gravitron.amount))
+    })
+}
+
+
+let gravitronUpgrade = function(){
+    fetch('http://localhost:3000/attractions')
+    .then(function(response){
+        return response.json()
+    })
+    .then(function(attractions){
+        let gravitron = attractions.find(element => {return element.name === "Gravitron" && element.user_id === currentUser.id})
+
+
+        purchaseUpgrade(gravitron)
+
+        changeRevenue(gravitron,2)
+        
+    })
+}
+
+///////////////////////////////////
+
+let createwaterslide = function() {
+    let waterslide_container = document.querySelectorAll('.attraction-div')[1]
+    fetch('http://localhost:3000/attractions')
+        .then(function(response){
+            return response.json()
+        })
+        .then(function(attractions){
+            // Testing function to see if waterslide can be found
+            let waterslide = attractions.find(element => {return element.name === "Waterslide" && element.user_id === currentUser.id})
+
+
+            let moneyDisplay = document.querySelector('.money-display')
+            let money = parseInt(moneyDisplay.innerHTML)
+
+            if(money < waterslide.price)
+            {
+                console.log("Cannot be purchased")
+            }
+            else{
+            moneyDisplay.innerText = `${money - waterslide.price} dollars`
+
+
+            
+            // If button is pressed the amount gets updated by 1
+            waterslide.amount += 1
+            console.log("This is the waterslide amount " + waterslide.amount)
+
+            // waterslide_container.append(`Purchased: ${waterslide.amount}`)
+
+            saveToDatabase(waterslide)
+            }
+
+    })
+}
+
+let showWaterslideAmount = function(){
+    let waterslide_container = document.querySelectorAll('.attraction-div')[0]
+    fetch('http://localhost:3000/attractions')
+        .then(function(response){
+            return response.json()
+        })
+        .then(function(attractions){
+            // Testing function to see if waterslide can be found
+            let waterslide = attractions.find(element => {return element.name === "Waterslide" && element.user_id === currentUser.id})
+
+            //Fix later lol
+            waterslide_container.append(`Purchased: ${waterslide.amount}`)
+            waterslide_container.append(`Price: ${waterslide.price}`)
+    })
+}
+
+
+let addWaterslideMoney = function(){
+    fetch('http://localhost:3000/attractions')
+    .then(function(response){
+        return response.json()
+    })
+    .then(function(attractions){
+        let waterslide = attractions.find(element => {return element.name === "Waterslide" && element.user_id === currentUser.id})
+
+
+        addToWallet(currentUser,(waterslide.revenue * waterslide.amount))
+    })
+}
+
+
+let waterslideUpgrade = function(){
+    fetch('http://localhost:3000/attractions')
+    .then(function(response){
+        return response.json()
+    })
+    .then(function(attractions){
+        let waterslide = attractions.find(element => {return element.name === "Waterslide" && element.user_id === currentUser.id})
+
+
+        purchaseUpgrade(waterslide)
+
+        changeRevenue(waterslide,2)
+        
+    })
+}
+////////
+let createrollercoaster = function() {
+    let rollercoaster_container = document.querySelectorAll('.attraction-div')[1]
+    fetch('http://localhost:3000/attractions')
+        .then(function(response){
+            return response.json()
+        })
+        .then(function(attractions){
+            // Testing function to see if rollercoaster can be found
+            let rollercoaster = attractions.find(element => {return element.name === "Rollercoaster" && element.user_id === currentUser.id})
+
+
+            let moneyDisplay = document.querySelector('.money-display')
+            let money = parseInt(moneyDisplay.innerHTML)
+
+            if(money < rollercoaster.price)
+            {
+                console.log("Cannot be purchased")
+            }
+            else{
+            moneyDisplay.innerText = `${money - rollercoaster.price} dollars`
+
+
+            
+            // If button is pressed the amount gets updated by 1
+            rollercoaster.amount += 1
+            console.log("This is the rollercoaster amount " + rollercoaster.amount)
+
+            // rollercoaster_container.append(`Purchased: ${rollercoaster.amount}`)
+
+            saveToDatabase(rollercoaster)
+            }
+
+    })
+}
+
+let showrollercoasterAmount = function(){
+    let rollercoaster_container = document.querySelectorAll('.attraction-div')[0]
+    fetch('http://localhost:3000/attractions')
+        .then(function(response){
+            return response.json()
+        })
+        .then(function(attractions){
+            // Testing function to see if rollercoaster can be found
+            let rollercoaster = attractions.find(element => {return element.name === "Rollercoaster" && element.user_id === currentUser.id})
+
+            //Fix later lol
+            rollercoaster_container.append(`Purchased: ${rollercoaster.amount}`)
+            rollercoaster_container.append(`Price: ${rollercoaster.price}`)
+    })
+}
+
+
+let addrollercoasterMoney = function(){
+    fetch('http://localhost:3000/attractions')
+    .then(function(response){
+        return response.json()
+    })
+    .then(function(attractions){
+        let rollercoaster = attractions.find(element => {return element.name === "Rollercoaster" && element.user_id === currentUser.id})
+
+
+        addToWallet(currentUser,(rollercoaster.revenue * rollercoaster.amount))
+    })
+}
+
+
+let rollercoasterUpgrade = function(){
+    fetch('http://localhost:3000/attractions')
+    .then(function(response){
+        return response.json()
+    })
+    .then(function(attractions){
+        let rollercoaster = attractions.find(element => {return element.name === "Rollercoaster" && element.user_id === currentUser.id})
+
+
+        purchaseUpgrade(rollercoaster)
+
+        changeRevenue(rollercoaster,2)
+        
+    })
+}
+
+
+
+
 
 let renderAttractions = function(){
     fetch('http://localhost:3000/attractions')
@@ -144,7 +395,7 @@ let assignAllAttractions = async function(){
             price: 25
         })
     })
-    .then(fetch(`http://localhost:3000/attractions`,{
+    .then(()=> fetch(`http://localhost:3000/attractions`,{
         method: "POST",
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -156,7 +407,7 @@ let assignAllAttractions = async function(){
             price: 100
         })
     }))
-    .then(fetch(`http://localhost:3000/attractions`,{
+    .then(()=>fetch(`http://localhost:3000/attractions`,{
         method: "POST",
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -169,7 +420,7 @@ let assignAllAttractions = async function(){
         })
 
     }))
-    .then(fetch(`http://localhost:3000/attractions`,{
+    .then(()=>fetch(`http://localhost:3000/attractions`,{
         method: "POST",
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({

@@ -7,5 +7,4 @@ Rails.application.routes.draw do
   resources :button_upgrades
   resources :users
 
-  put('')
 end

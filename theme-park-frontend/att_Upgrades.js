@@ -13,6 +13,46 @@ let assignAllAttUpgrades = function(){
             price: 100
         })
     })
+
+    .then(()=>fetch(`http://localhost:3000/attraction_upgrades`,{
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            name: "Gravitron",
+            flavor_text: "ITS A UFO",
+            revenue_multiplier: 2,
+            "purchased?": false,
+            user_id: currentUser.id,
+            price: 100
+        })
+    }))
+
+    .then(()=>fetch(`http://localhost:3000/attraction_upgrades`,{
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            name: "Waterslide",
+            flavor_text: "Why a waterslide? Shut up thats why...",
+            revenue_multiplier: 2,
+            "purchased?": false,
+            user_id: currentUser.id,
+            price: 100
+        })
+    }))
+
+
+    .then(()=>fetch(`http://localhost:3000/attraction_upgrades`,{
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            name: "Rollercoaster",
+            flavor_text: "Even has the loopdey loop",
+            revenue_multiplier: 2,
+            "purchased?": false,
+            user_id: currentUser.id,
+            price: 100
+        })
+    }))
 }
 
 
