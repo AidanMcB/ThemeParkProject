@@ -123,6 +123,8 @@ let createSignUp = function(){
 
         //create attractions for the user
         assignAllAttractions()
+        //create attraction upgrades for the user
+        assignAllAttUpgrades()
      
 
     })

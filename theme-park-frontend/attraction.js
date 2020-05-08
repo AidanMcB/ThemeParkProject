@@ -71,6 +71,19 @@ let addCaroselMoney = function(){
 }
 
 
+let caroselUpgradeTest = function(){
+    fetch('http://localhost:3000/attractions')
+    .then(function(response){
+        return response.json()
+    })
+    .then(function(attractions){
+        let carosel = attractions.find(element => {return element.name === "Carosel" && element.user_id === currentUser.id})
+
+
+        purchaseUpgrade(carosel)
+    })
+}
+
 // let upgradeCarosel = function(){
 //     fetch('http://localhost:3000/attractions')
 //     .then(function(response){
