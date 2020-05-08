@@ -251,4 +251,92 @@ html{
     border-radius: 50px 50px;
     /* text-align: center; */
 }
+.car-upgrade-button{
+    height: 50px;
+    width: 190px;
+    border: 2px solid orange;
+    background-color: lavender;
+    color: black;
+    margin-top: -20px;
+    font-weight: bold;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50px 50px;
+}
+.gravitron-button{
+    height: 50px;
+    width: 190px;
+    border: 2px solid orange;
+    background-color: lavender;
+    color: black;
+    margin-top: -20px;
+    font-weight: bold;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50px 50px;
+}
+.grav-upgrade-button{
+    height: 50px;
+    width: 190px;
+    border: 2px solid orange;
+    background-color: lavender;
+    color: black;
+    margin-top: -20px;
+    font-weight: bold;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50px 50px;
+}
+.water-upgrade-button{
+    height: 50px;
+    width: 190px;
+    border: 2px solid orange;
+    background-color: lavender;
+    color: black;
+    margin-top: -20px;
+    font-weight: bold;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50px 50px;
+}
+.waterslide-button{
+    height: 50px;
+    width: 190px;
+    border: 2px solid orange;
+    background-color: lavender;
+    color: black;
+    margin-top: -20px;
+    font-weight: bold;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50px 50px;
+}
+.rollercoaster-button{
+    height: 50px;
+    width: 190px;
+    border: 2px solid orange;
+    background-color: lavender;
+    color: black;
+    margin-top: -20px;
+    font-weight: bold;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50px 50px;
+}
+.roll-upgrade-button{
+    height: 50px;
+    width: 190px;
+    border: 2px solid orange;
+    background-color: lavender;
+    color: black;
+    margin-top: -20px;
+    font-weight: bold;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50px 50px;
+}
+.messages{
+    color: white;
+    font-size: 26px;
+}
 

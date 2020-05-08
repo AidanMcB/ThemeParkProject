@@ -105,7 +105,7 @@ let createGravitron = function() {
         .then(function(attractions){
             // Testing function to see if gravitron can be found
             let gravitron = attractions.find(element => {return element.name === "Gravitron" && element.user_id === currentUser.id})
-
+                debugger
 
             let moneyDisplay = document.querySelector('.money-display')
             let money = parseInt(moneyDisplay.innerHTML)
@@ -117,6 +117,11 @@ let createGravitron = function() {
             else{
             moneyDisplay.innerText = `${money - gravitron.price} dollars`
 
+            if(gravitron.amount == 0){
+                console.log("image change")
+            let picture = document.querySelector('img')
+            picture.src = "assets/gravitron1.png"
+            }
 
             
             // If button is pressed the amount gets updated by 1
@@ -132,7 +137,7 @@ let createGravitron = function() {
 }
 
 let showGravitronAmount = function(){
-    let gravitron_container = document.querySelectorAll('.attraction-div')[0]
+    let gravitron_container = document.querySelectorAll('.attraction-div')[1]
     fetch('http://localhost:3000/attractions')
         .then(function(response){
             return response.json()
@@ -181,7 +186,7 @@ let gravitronUpgrade = function(){
 ///////////////////////////////////
 
 let createwaterslide = function() {
-    let waterslide_container = document.querySelectorAll('.attraction-div')[1]
+    let waterslide_container = document.querySelectorAll('.attraction-div')[2]
     fetch('http://localhost:3000/attractions')
         .then(function(response){
             return response.json()
@@ -201,7 +206,11 @@ let createwaterslide = function() {
             else{
             moneyDisplay.innerText = `${money - waterslide.price} dollars`
 
-
+            if(waterslide.amount == 0){
+                console.log("image change")
+            let picture = document.querySelector('img')
+            picture.src = "assets/waterslide1.png"
+            }
             
             // If button is pressed the amount gets updated by 1
             waterslide.amount += 1
@@ -216,7 +225,7 @@ let createwaterslide = function() {
 }
 
 let showWaterslideAmount = function(){
-    let waterslide_container = document.querySelectorAll('.attraction-div')[0]
+    let waterslide_container = document.querySelectorAll('.attraction-div')[2]
     fetch('http://localhost:3000/attractions')
         .then(function(response){
             return response.json()
@@ -263,7 +272,7 @@ let waterslideUpgrade = function(){
 }
 ////////
 let createrollercoaster = function() {
-    let rollercoaster_container = document.querySelectorAll('.attraction-div')[1]
+    let rollercoaster_container = document.querySelectorAll('.attraction-div')[3]
     fetch('http://localhost:3000/attractions')
         .then(function(response){
             return response.json()
@@ -282,7 +291,11 @@ let createrollercoaster = function() {
             }
             else{
             moneyDisplay.innerText = `${money - rollercoaster.price} dollars`
-
+            if(rollercoaster.amount == 0){
+                console.log("image change")
+            let picture = document.querySelector('img')
+            picture.src = "assets/rollercoaster1.png"
+            }
 
             
             // If button is pressed the amount gets updated by 1
@@ -298,7 +311,7 @@ let createrollercoaster = function() {
 }
 
 let showrollercoasterAmount = function(){
-    let rollercoaster_container = document.querySelectorAll('.attraction-div')[0]
+    let rollercoaster_container = document.querySelectorAll('.attraction-div')[3]
     fetch('http://localhost:3000/attractions')
         .then(function(response){
             return response.json()
@@ -437,6 +450,60 @@ let assignAllAttractions = async function(){
             wait_time: 10,
             user_id: currentUser,
             price: 2000
+        })
+    }))
+    
+    // First fetch is for the carosel
+    .then( ()=> fetch`http://localhost:3000/attraction_upgrades`,{
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            name: "Carosel",
+            flavor_text: "Congrats! You're an Idling Pro... A Professional Time Waster",
+            revenue_multiplier: 2,
+            "purchased?": false,
+            user_id: currentUser.id,
+            price: 100
+        })
+    })
+
+    .then(()=>fetch(`http://localhost:3000/attraction_upgrades`,{
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            name: "Gravitron",
+            flavor_text: "ITS A UFO",
+            revenue_multiplier: 2,
+            "purchased?": false,
+            user_id: currentUser.id,
+            price: 100
+        })
+    }))
+
+    .then(()=>fetch(`http://localhost:3000/attraction_upgrades`,{
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            name: "Waterslide",
+            flavor_text: "Why a waterslide? Shut up thats why...",
+            revenue_multiplier: 2,
+            "purchased?": false,
+            user_id: currentUser.id,
+            price: 100
+        })
+    }))
+
+
+    .then(()=>fetch(`http://localhost:3000/attraction_upgrades`,{
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            name: "Rollercoaster",
+            flavor_text: "Even has the loopdey loop",
+            revenue_multiplier: 2,
+            "purchased?": false,
+            user_id: currentUser.id,
+            price: 100
         })
     }))
 
