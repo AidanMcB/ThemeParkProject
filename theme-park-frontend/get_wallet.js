@@ -36,11 +36,11 @@ let addToWallet = function(currentUser,value){ //callback will reference
         })
         .then(function(wallet){
             console.log(wallet.money)
-            let money = wallet.money + value
             let moneyDisplay = document.querySelector('.money-display')
-            moneyDisplay.innerText = `${money} dollars`
+            let money = parseInt(moneyDisplay.innerHTML)
+            moneyDisplay.innerText = `${money + value} dollars`
 
-            updateWallet(currentUser,money)
+            // updateWallet(currentUser,money)
         })
 }
 
