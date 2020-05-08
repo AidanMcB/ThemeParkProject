@@ -111,7 +111,8 @@ let createSignUp = function(){
         //newUser we created through input
         userNow = newUser
         currentUser = newUser
-        
+        assignAllAttractions()
+        assignAllAttUpgrades()
             // let currentUser = newUser
         //creates a wallet when a user is created
         //wallet is tied to this use
@@ -122,9 +123,9 @@ let createSignUp = function(){
         getPage(currentUser)
 
         //create attractions for the user
-        assignAllAttractions()
+        
         //create attraction upgrades for the user
-        assignAllAttUpgrades()
+        
      
 
     })

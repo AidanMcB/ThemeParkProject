@@ -7,6 +7,7 @@ createSignUp()
 
 
 let runGame = function(){
+    
     let carosel_container = document.querySelectorAll('.attraction-div')[0]
     let gravitron_container = document.querySelectorAll('.attraction-div')[1]
     let waterslide_container = document.querySelectorAll('.attraction-div')[2]
