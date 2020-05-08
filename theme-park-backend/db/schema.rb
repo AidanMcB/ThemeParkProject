@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_05_04_210540) do
     t.float "revenue_multiplier"
     t.boolean "purchased?"
     t.integer "price"
-    t.integer "attraction_id"
+    t.integer "user_id"
   end
 
   create_table "attractions", force: :cascade do |t|
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2020_05_04_210540) do
     t.integer "wait_time"
     t.string "img_source"
     t.integer "user_id"
+    t.integer "price"
   end
 
   create_table "button_upgrades", force: :cascade do |t|

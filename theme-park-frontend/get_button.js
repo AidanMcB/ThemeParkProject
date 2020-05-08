@@ -24,8 +24,9 @@ let getButton = function(currentUser){
 
             //when the button is clicked
             btn.addEventListener('click', function(){
+                console.log("This button has been clicked")
                 addToWallet(currentUser,button.value)
-                updateWallet(currentUser,button.value)
+                // updateWallet(currentUser,button.value)
 
             })
         })

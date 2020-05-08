@@ -13,7 +13,21 @@ class AttractionsController < ApplicationController
     def update
         attraction = Attraction.find(params[:id])
         attraction.update({
-            amount: params[:amount]
+            amount: params[:amount],
+            price: params[:price]
+
+        })
+        render(json: attraction)
+    end
+
+    def create
+        attraction = Attraction.create({
+            user_id: params[:user_id][:id],
+            name: params[:name],
+            amount: params[:amount],
+            revenue: params[:revenue],
+            wait_time: params[:wait_time],
+            price: params[:price]       
         })
         render(json: attraction)
     end
