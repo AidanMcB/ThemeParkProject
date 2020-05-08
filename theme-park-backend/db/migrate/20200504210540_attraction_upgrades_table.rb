@@ -6,7 +6,7 @@ class AttractionUpgradesTable < ActiveRecord::Migration[6.0]
       t.float :revenue_multiplier
       t.boolean :purchased?
       t.integer :price
-      t.integer :attraction_id
+      t.integer :user_id
     end
   end
 end

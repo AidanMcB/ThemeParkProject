@@ -39,7 +39,7 @@ let addToWallet = function(currentUser,value){ //callback will reference
             let moneyDisplay = document.querySelector('.money-display')
             let money = parseInt(moneyDisplay.innerHTML)
             moneyDisplay.innerText = `${money + value} dollars`
-
+            
             // updateWallet(currentUser,money)
         })
 }
