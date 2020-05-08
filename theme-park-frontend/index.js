@@ -41,13 +41,15 @@ let runGame = function(){
     rollercoaster_container.innerHTML = ''
 
     let carosel_button = document.createElement('button')
-
+    carosel_button.setAttribute('class', 'carosel-button')
     carosel_button.append(`Purchase Carosel`)
 
     
 
     carosel_button.addEventListener("click", function(e){
+        
         createCarosel()
+        
     })
 
     // upgradeCarosel()

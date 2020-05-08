@@ -127,7 +127,7 @@ h1{
     text-align: center;
     color: limegreen;
 
-    text-shadow: 3px 3px black;
+    text-shadow: 4px 4px black;
     font-weight: bold;
     font-size: 36px;
     padding: 20px;
@@ -143,8 +143,8 @@ html{
     background-image: url("https://motionarray.imgix.net/preview-109791-7yvN3aYi0M-high_0000.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-  margin: 0;
-  height:120%;
+  /* margin: 0; */
+  height:150%;
 }
 /* All Items Within game container flex */
 .game-container{
@@ -165,7 +165,9 @@ html{
     justify-content: center;
 }
 .attraction-div{
-    background: #eaeaea;
+    /* background: #eaeaea; */
+    border: 3px solid black;
+ 
 }
 /* Children in Order */
     /* 1 */
@@ -175,15 +177,23 @@ html{
         padding: 0.5em;
     }
         .the-button{
-            height: 100px;
-            width: 100px;
+            box-shadow: 0 9px #999;
+            height: 120px;
+            width: 120px;
             margin-left: 0px;
             font-size: 26px;
+            font-weight: bold;
             border-radius: 55px 55px;
             cursor: pointer;
             border: 2px solid black;
-            background-color:orangered;
+            background-color:rgb(0, 255, 81);
+            text-shadow: 1px 1px gray;
         }
+        .the-button:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+          }
     /* 2 */
     .attraction-list{
         margin: 0.5em;
@@ -193,13 +203,12 @@ html{
     /* 3 */
     .footer{
         /* grid-column: 1 / span 2; */
-        border: 1px dotted white;
+        /* border: 1px dotted black; */
         margin: 0.5em;
         padding: 0.5em;
-        margin-top: -100px;
-        background-color: black;
+        /* background-color: black; */
         height: 180px;
-        margin-top: -100px;
+        margin-top: -140px;
     
         /* text-align: center; */
     }
@@ -207,6 +216,9 @@ html{
             color: white;
         }
     /* 4 */
+    img{
+        border-radius: 25px 25px;
+    }
     .game-screen{
         /* border: 1px solid black; */
         margin: 0.5em;
@@ -223,3 +235,20 @@ html{
         overflow-x: hidden;
     
     }
+   
+/* carosel_button stylings */
+
+.carosel-button{
+    height: 50px;
+    width: 190px;
+    border: 2px solid orange;
+    background-color: lavender;
+    color: black;
+    margin-top: -20px;
+    font-weight: bold;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50px 50px;
+    /* text-align: center; */
+}
+

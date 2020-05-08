@@ -18,7 +18,7 @@ let getPage = function(currentUser){
         let footer = document.createElement("div")
         let footerP = document.createElement("p")
         footerP.setAttribute('class', 'footer-p')
-        footerP.innerText = "footer p tag text"
+        footerP.innerText = ""
         footer.setAttribute('class', 'footer')
         footer.append(footerP)
         

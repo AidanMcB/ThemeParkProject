@@ -24,13 +24,20 @@ let createCarosel = function() {
                 console.log("Cannot be purchased")
             }
             else{
+                
+            
             moneyDisplay.innerText = `${money - carosel.price} dollars`
-
+            if(carosel.amount == 0){
+                console.log("image change")
+            let picture = document.querySelector('img')
+            picture.src = "assets/carosel1.png"
+            }
 
             
             // If button is pressed the amount gets updated by 1
             carosel.amount += 1
             console.log("This is the carosel amount " + carosel.amount)
+            
 
             // carosel_container.append(`Purchased: ${carosel.amount}`)
 
